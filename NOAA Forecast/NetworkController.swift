@@ -10,9 +10,9 @@ import Foundation
 
 class NetworkController {
 
-    static func baseURL(searchLocation:String) -> NSURL {
-        let modifiedSearchLocation = searchLocation.stringByReplacingOccurrencesOfString(" ", withString: "+")
-        return NSURL(string: "http://forecast.weather.gov/MapClick.php\(modifiedSearchLocation)toBeDeterminted")!
+    static func baseURLCoordinates(latitude: String, longitude: String) -> NSURL {
+        let modifiedSearchLocation = "lat=\(latitude)&lon=\(longitude)"
+        return NSURL(string: "http://forecast.weather.gov/MapClick.php?\(modifiedSearchLocation)&FcstType=json")!
         
 }
 }

@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Location View Controller-->
         <scene sceneID="rGY-WV-fcq">
             <objects>
-                <viewController id="MER-7u-fub" sceneMemberID="viewController">
+                <viewController id="MER-7u-fub" customClass="LocationViewController" customModule="NOAA_Forecast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lc4-T5-fFe"/>
                         <viewControllerLayoutGuide type="bottom" id="aw1-jr-7bg"/>

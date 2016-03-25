@@ -16,17 +16,15 @@ class MapController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
 
     var annotation = MKPointAnnotation()
-    var userCoordinates = ""
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        //Initialize location manager
-//        locationManager.delegate = self;
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestAlwaysAuthorization()
-//        locationManager.startUpdatingLocation()
+   
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
         
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
@@ -36,17 +34,10 @@ class MapController: UIViewController, MKMapViewDelegate {
         dropPin.coordinate = CLLocationCoordinate2D(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude)
         self.mapView.addAnnotation(dropPin)
         
-        let createPin = UITapGestureRecognizer(target: self, action: ("tapGestureRecognizer:"))
+        let createPin = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
         self.view.addGestureRecognizer(createPin)
         
     }
-    
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        let userLocation:CLLocation = locations[0] as! CLLocation
-//        let long = userLocation.coordinate.longitude;
-//        let lat = userLocation.coordinate.latitude;
-//        
-//    }
     
         // Drop a NEW PIN
         func tapGestureRecognizer(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -60,6 +51,7 @@ class MapController: UIViewController, MKMapViewDelegate {
             let newCoordinate: CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
             let latitude = newCoordinate.latitude
             let longitude = newCoordinate.longitude
+            
             // Callout Annotation
             annotation.coordinate = newCoordinate
             annotation.title = "(\(latitude),\(longitude)"
