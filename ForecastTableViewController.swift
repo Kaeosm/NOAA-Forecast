@@ -1,5 +1,5 @@
 //
-//  ForecastController.swift
+//  ForecastTableViewController.swift
 //  NOAA Forecast
 //
 //  Created by Kaelin Osmun on 3/22/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForecastController: UITableViewController {
+class ForecastTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

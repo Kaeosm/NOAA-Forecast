@@ -15,8 +15,8 @@
 		24A717981C93899800C99572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24A717971C93899800C99572 /* Assets.xcassets */; };
 		24A7179B1C93899800C99572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A717991C93899800C99572 /* LaunchScreen.storyboard */; };
 		24A717CC1CA07A8A00C99572 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A717CB1CA07A8A00C99572 /* MapKit.framework */; };
-		24A717D01CA08B5100C99572 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717CF1CA08B5100C99572 /* MapController.swift */; };
-		24A717D91CA1E02600C99572 /* ForecastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717D81CA1E02600C99572 /* ForecastController.swift */; };
+		24A717D01CA08B5100C99572 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717CF1CA08B5100C99572 /* MapViewController.swift */; };
+		24A717D91CA1E02600C99572 /* ForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717D81CA1E02600C99572 /* ForecastTableViewController.swift */; };
 		24A717DB1CA1E06E00C99572 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717DA1CA1E06E00C99572 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +31,8 @@
 		24A7179A1C93899800C99572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24A7179C1C93899800C99572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24A717CB1CA07A8A00C99572 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		24A717CF1CA08B5100C99572 /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapController.swift; path = ../MapController.swift; sourceTree = "<group>"; };
-		24A717D81CA1E02600C99572 /* ForecastController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastController.swift; path = ../ForecastController.swift; sourceTree = "<group>"; };
+		24A717CF1CA08B5100C99572 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../MapViewController.swift; sourceTree = "<group>"; };
+		24A717D81CA1E02600C99572 /* ForecastTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastTableViewController.swift; path = ../ForecastTableViewController.swift; sourceTree = "<group>"; };
 		24A717DA1CA1E06E00C99572 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ../LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,10 +72,10 @@
 			children = (
 				24A717901C93899800C99572 /* AppDelegate.swift */,
 				24A717DA1CA1E06E00C99572 /* LocationViewController.swift */,
-				24A717D81CA1E02600C99572 /* ForecastController.swift */,
+				24A717D81CA1E02600C99572 /* ForecastTableViewController.swift */,
 				24083CD81CA3082700CF6B7F /* Weather.swift */,
 				24083CDA1CA32E1400CF6B7F /* NetworkController.swift */,
-				24A717CF1CA08B5100C99572 /* MapController.swift */,
+				24A717CF1CA08B5100C99572 /* MapViewController.swift */,
 				24A717941C93899800C99572 /* Main.storyboard */,
 				24A717971C93899800C99572 /* Assets.xcassets */,
 				24A717991C93899800C99572 /* LaunchScreen.storyboard */,
@@ -161,9 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A717DB1CA1E06E00C99572 /* LocationViewController.swift in Sources */,
-				24A717D01CA08B5100C99572 /* MapController.swift in Sources */,
+				24A717D01CA08B5100C99572 /* MapViewController.swift in Sources */,
 				24083CDB1CA32E1400CF6B7F /* NetworkController.swift in Sources */,
-				24A717D91CA1E02600C99572 /* ForecastController.swift in Sources */,
+				24A717D91CA1E02600C99572 /* ForecastTableViewController.swift in Sources */,
 				24A717911C93899800C99572 /* AppDelegate.swift in Sources */,
 				24083CD91CA3082800CF6B7F /* Weather.swift in Sources */,
 			);
