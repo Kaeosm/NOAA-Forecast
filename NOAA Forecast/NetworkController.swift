@@ -11,7 +11,7 @@ import Foundation
 class NetworkController {
     
     static func baseURLCoordinates(latitude: String, longitude: String) -> NSURL {
-        let modifiedSearchLocation = "lat=\(latitude)&lon=\(longitude)"
+        let modifiedSearchLocation = "lon=\(latitude)&lat=\(longitude)"
         return NSURL(string: "http://forecast.weather.gov/MapClick.php?\(modifiedSearchLocation)&FcstType=json")!
         
     }
@@ -31,5 +31,6 @@ class NetworkController {
     }
 }
 
-
+// http://forecast.weather.gov/MapClick.php?lon=-111.56813428659063&lat=40.60066141047355&FcstType=json
+// http://forecast.weather.gov/MapClick.php?lat=-111.56813428659063&lon=40.60066141047355&FcstType=json
 

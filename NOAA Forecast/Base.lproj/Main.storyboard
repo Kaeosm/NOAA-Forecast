@@ -212,13 +212,6 @@
                             <outlet property="delegate" destination="4rg-mf-eWx" id="I6p-k1-4ll"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="dayOfTheWeekLabel" destination="Qfe-ma-sDU" id="hV3-DC-KnN"/>
-                        <outlet property="temperatureLabel" destination="YtG-gs-03s" id="bCQ-G3-ENk"/>
-                        <outlet property="weatherIconImage" destination="pY8-Qc-b5X" id="4hd-TT-MAI"/>
-                        <outlet property="weatherTitleLabel" destination="ACM-FF-Tuu" id="oYi-9O-O4T"/>
-                        <outlet property="windChillLabel" destination="z6j-nv-FZN" id="g33-1v-vgV"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc3-oX-XX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

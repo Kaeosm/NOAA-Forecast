@@ -13,7 +13,9 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        ForecastController.fetchCoordinates("-111.56813428659063", long: "40.60066141047355") { (weather) in
+            print(weather)
+        }
     }
 
     override func didReceiveMemoryWarning() {

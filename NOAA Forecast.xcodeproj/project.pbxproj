@@ -19,6 +19,7 @@
 		24A717D91CA1E02600C99572 /* ForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717D81CA1E02600C99572 /* ForecastTableViewController.swift */; };
 		24A717DB1CA1E06E00C99572 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717DA1CA1E06E00C99572 /* LocationViewController.swift */; };
 		24B7E4F11CAB035200482369 /* ForecastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B7E4F01CAB035200482369 /* ForecastController.swift */; };
+		24B7E4F31CAB2FE300482369 /* BasicForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B7E4F21CAB2FE300482369 /* BasicForecastTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		24A717D81CA1E02600C99572 /* ForecastTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastTableViewController.swift; path = ../ForecastTableViewController.swift; sourceTree = "<group>"; };
 		24A717DA1CA1E06E00C99572 /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationViewController.swift; path = ../LocationViewController.swift; sourceTree = "<group>"; };
 		24B7E4F01CAB035200482369 /* ForecastController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastController.swift; sourceTree = "<group>"; };
+		24B7E4F21CAB2FE300482369 /* BasicForecastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicForecastTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				24A717901C93899800C99572 /* AppDelegate.swift */,
 				24A717DA1CA1E06E00C99572 /* LocationViewController.swift */,
 				24A717D81CA1E02600C99572 /* ForecastTableViewController.swift */,
+				24B7E4F21CAB2FE300482369 /* BasicForecastTableViewCell.swift */,
 				24B7E4F01CAB035200482369 /* ForecastController.swift */,
 				24083CD81CA3082700CF6B7F /* Weather.swift */,
 				24083CDA1CA32E1400CF6B7F /* NetworkController.swift */,
@@ -169,6 +172,7 @@
 				24A717D91CA1E02600C99572 /* ForecastTableViewController.swift in Sources */,
 				24B7E4F11CAB035200482369 /* ForecastController.swift in Sources */,
 				24A717911C93899800C99572 /* AppDelegate.swift in Sources */,
+				24B7E4F31CAB2FE300482369 /* BasicForecastTableViewCell.swift in Sources */,
 				24083CD91CA3082800CF6B7F /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
