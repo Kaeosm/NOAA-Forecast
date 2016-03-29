@@ -10,6 +10,19 @@ import UIKit
 
 class ForecastTableViewController: UITableViewController {
 
+//    @IBOutlet weak var weatherIconImage: UIImageView!
+//    
+//    @IBOutlet weak var dayOfTheWeekLabel: UILabel!
+//    
+//    @IBOutlet weak var weatherTitleLabel: UILabel!
+//    
+//    @IBOutlet weak var temperatureLabel: UILabel!
+//    
+//    @IBOutlet weak var windChillLabel: UILabel!
+    
+    var cellTapped:Bool = true
+    var currentRow = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,12 +49,33 @@ class ForecastTableViewController: UITableViewController {
         return 5
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var selectedRowIndex = indexPath
+        currentRow = selectedRowIndex.row
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == currentRow {
+            if cellTapped == false {
+                cellTapped = true
+                return 141
+            } else {
+                cellTapped = false
+                return 70
+            }
+        }
+        return 70
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
@@ -49,7 +83,7 @@ class ForecastTableViewController: UITableViewController {
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

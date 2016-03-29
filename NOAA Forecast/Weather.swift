@@ -15,25 +15,38 @@ class Weather {
     var windSpeed: String
     var windChill: String
     var areaLocation: String
+    var weatherTitle: [String]
     var weatherDescriptions: [String]
     var weatherIcons: [String]
+    var dayOfTheWeek: [String]
     
     init?(json:[String:AnyObject]) {
         
         
         guard let data = json["data"] as? [String: AnyObject],
             temperatures = data["temperature"] as? [String],
+            weatherTitle = data["weather"] as? [String],
             weatherDescriptions = data["text"] as? [String],
             weatherIcons = data["iconLink"] as? [String] else {
-                
+        
                 return nil
         }
+        //Basic Weather Title
+        self.weatherTitle = weatherTitle
         //Temperatures
         self.temperatures = temperatures
         //Weather Description
         self.weatherDescriptions = weatherDescriptions
         //Weather Images for Icon
         self.weatherIcons = weatherIcons
+        
+        // Day of The Week
+        guard let time = json["time"] as? [String: AnyObject],
+            dayOfTheWeek = time["startPeriodName"] as? [String] else {
+                return nil
+        }
+        //Day of the Week
+        self.dayOfTheWeek = dayOfTheWeek
         
         //CurrentObservation
         
