@@ -13,18 +13,23 @@ class ForecastTableViewController: UITableViewController {
     var cellTapped:Bool = true
     var currentRow = -1
     
+    var latitude: String?
+    var longitude: String?
+    var weather: Weather?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let url = NSURL(string: "http://www.ncdc.noaa.gov/cdo-web/api/v2/datacategories?limit=41") {
-            
-            let weatherRequest = NSMutableURLRequest(URL: url)
-            weatherRequest.addValue("LkpkGBbYYJBTBdhsDWYQpKnIdsPjaZed", forHTTPHeaderField: "token")
-            print(weatherRequest)
-            
+        if let latitude = latitude, longitude = longitude {
+            ForecastController.fetchWeatherWithCoordinates(longitude, lat: latitude, completion: { (weather) in
+                self.weather = weather
+                dispatch_async(dispatch_get_main_queue(), { 
+                    self.tableView.reloadData()
+                })
+            })
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,7 +39,7 @@ class ForecastTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 10
+        return 1
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -59,18 +64,22 @@ class ForecastTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 10
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! BasicForecastTableViewCell
+        
+        
+        
+        if let weather = weather {
+            cell.configureCellWithWeather(weather, index: indexPath.row)
+        }
+        
         return cell
     }
+    
     
 
     /*

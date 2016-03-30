@@ -20,15 +20,12 @@ class BasicForecastTableViewCell: UITableViewCell {
     
     @IBOutlet weak var windChill: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func configureCellWithWeather(weather: Weather, index: Int) {
+        dayOfTheWeek.text = weather.dayOfTheWeek[index]
+        basicWeather.text = weather.weatherTitle[index]
+        temperature.text = weather.temperatures[index]
+        windChill.text = weather.windChill
+        
+        
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

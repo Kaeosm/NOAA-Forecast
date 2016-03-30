@@ -25,6 +25,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -41,6 +42,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.view.addGestureRecognizer(createPin)
         
     }
+    
+    @IBAction func useLocationButtonTapped(sender: AnyObject) {
+        
+    }
+    
+    @IBAction func homeButtonTapped(sender: AnyObject) {
+        
+    }
+    
+    
     
     // Drop a NEW PIN
     func tapGestureRecognizer(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -64,7 +75,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(annotation)
         
         // Creates the span and animated zoomed into an area
-        let span = MKCoordinateSpanMake(0.5, 0.5)
+        let span = MKCoordinateSpanMake(0.4, 0.4)
         let region = MKCoordinateRegion(center: newCoordinate, span: span)
         mapView.setRegion(region, animated: true)
         
@@ -75,6 +86,15 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let yourAnnotationAtIndex = 0
         mapView.selectAnnotation(mapView.annotations[yourAnnotationAtIndex], animated: false)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toForecastVC" {
+            let forecastVC = segue.destinationViewController as! ForecastTableViewController
+            forecastVC.latitude = "\(annotation.coordinate.latitude)"
+            forecastVC.longitude = "\(annotation.coordinate.longitude)"
+            
+        }
     }
 }
 

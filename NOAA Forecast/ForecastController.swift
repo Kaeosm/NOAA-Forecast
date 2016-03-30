@@ -27,7 +27,7 @@ class ForecastController {
         }
     }
     
-    static func fetchCoordinates(lat: String, long: String, completion: (weather: Weather?) -> Void) {
+    static func fetchWeatherWithCoordinates(long: String, lat: String, completion: (weather: Weather?) -> Void) {
         let urlString = NetworkController.baseURLCoordinates(lat, longitude: long)
         NetworkController.dataAtURL(urlString) { (data) in
             guard let data = data,
@@ -41,8 +41,8 @@ class ForecastController {
                     completion(weather: weather)
                 }
             } else {
-                completion(weather: nil)
                 print("jsonObject wasn't of type [String: AnyObject]")
+                completion(weather: nil)
             }
         }
     }
