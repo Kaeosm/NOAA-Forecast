@@ -10,16 +10,6 @@ import UIKit
 
 class ForecastTableViewController: UITableViewController {
 
-//    @IBOutlet weak var weatherIconImage: UIImageView!
-//    
-//    @IBOutlet weak var dayOfTheWeekLabel: UILabel!
-//    
-//    @IBOutlet weak var weatherTitleLabel: UILabel!
-//    
-//    @IBOutlet weak var temperatureLabel: UILabel!
-//    
-//    @IBOutlet weak var windChillLabel: UILabel!
-    
     var cellTapped:Bool = true
     var currentRow = -1
     
@@ -34,8 +24,6 @@ class ForecastTableViewController: UITableViewController {
             
         }
     }
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,7 +34,7 @@ class ForecastTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 5
+        return 10
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
