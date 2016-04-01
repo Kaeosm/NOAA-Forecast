@@ -12,6 +12,9 @@ import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     
+    @IBAction func dismissMapViewTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -33,13 +36,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         self.mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
+
+        if let location = locationManager.location {
+            annotation.coordinate = CLLocationCoordinate2D(latitude: (location.coordinate.latitude), longitude: location.coordinate.longitude)
+            
+        }
         
-        let dropPin = MKPointAnnotation()
-        dropPin.coordinate = CLLocationCoordinate2D(latitude: self.mapView.userLocation.coordinate.latitude, longitude: self.mapView.userLocation.coordinate.longitude)
-        self.mapView.addAnnotation(dropPin)
+        self.mapView.addAnnotation(annotation)
         
         let createPin = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
         self.view.addGestureRecognizer(createPin)
+        
         
     }
     
@@ -71,11 +78,11 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         // Callout Annotation
         annotation.coordinate = newCoordinate
-        annotation.title = "(\(latitude),\(longitude)"
+        annotation.title = "Custom Location"
         mapView.addAnnotation(annotation)
         
         // Creates the span and animated zoomed into an area
-        let span = MKCoordinateSpanMake(0.4, 0.4)
+        let span = MKCoordinateSpanMake(0.1, 0.1)
         let region = MKCoordinateRegion(center: newCoordinate, span: span)
         mapView.setRegion(region, animated: true)
         
@@ -90,9 +97,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toForecastVC" {
-            let forecastVC = segue.destinationViewController as! ForecastTableViewController
-            forecastVC.latitude = "\(annotation.coordinate.latitude)"
-            forecastVC.longitude = "\(annotation.coordinate.longitude)"
+            let customForecastVC = segue.destinationViewController as! ForecastTableViewController
+            customForecastVC.latitude = "\(annotation.coordinate.latitude)"
+            customForecastVC.longitude = "\(annotation.coordinate.longitude)"
             
         }
     }
