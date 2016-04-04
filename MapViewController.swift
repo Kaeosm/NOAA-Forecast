@@ -36,7 +36,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         self.mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
-
+        
         if let location = locationManager.location {
             annotation.coordinate = CLLocationCoordinate2D(latitude: (location.coordinate.latitude), longitude: location.coordinate.longitude)
             
@@ -78,7 +78,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         // Callout Annotation
         annotation.coordinate = newCoordinate
-        annotation.title = "Custom Location"
+        let location = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        getCityName(location) { (city) in
+            self.annotation.title = city
+        }
         mapView.addAnnotation(annotation)
         
         // Creates the span and animated zoomed into an area
@@ -92,6 +95,34 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         //             Automatically show annotation callout
         let yourAnnotationAtIndex = 0
         mapView.selectAnnotation(mapView.annotations[yourAnnotationAtIndex], animated: false)
+        
+    }
+    // Get City Name from Location Coordinates
+    
+    func getCityName(location: CLLocation, completion: (city: String) -> Void ) {
+        
+        CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
+            if error != nil {
+                print("Could not find City")
+                completion(city: "")
+            } else {
+                if let unwrappedPlacemarks = placemarks {
+                    if unwrappedPlacemarks.count > 0 {
+                        let pm = unwrappedPlacemarks[0]
+                        if let cityName = pm.locality {
+                            completion(city: cityName)
+                        } else {
+                            completion(city: "")
+                        }
+                    } else {
+                        completion(city: "")
+                    }
+                } else {
+                    completion(city: "")
+                }
+            }
+            
+        }
         
     }
     
