@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import MapKit
+
 
 class LocationViewController: UIViewController {
+    
+    @IBAction func appInfoButtonTapped(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Pinpoint Weather", message: "Thanks for downloading Pinpoint Weather! This app will allow you to specify A custom location, which will return data for that exact latitude and longitude."
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -18,31 +18,18 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    var annotation = MKPointAnnotation()
-    let locationManager = CLLocationManager()
-    
-    // TODO: - Seperate code for MapKit and Core Location into new classes
-    // TODO: - Create WeatherController that serializes the data we get from our url in NetworkController
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
         
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         self.mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
         
-        if let location = locationManager.location {
-            annotation.coordinate = CLLocationCoordinate2D(latitude: (location.coordinate.latitude), longitude: location.coordinate.longitude)
-            
-        }
+        LocationController.fetchLocation()
         
-        self.mapView.addAnnotation(annotation)
+        LocationController.setAnnotationCoordinates()
+        
+        self.mapView.addAnnotation(LocationController.annotation)
         
         let createPin = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
         self.view.addGestureRecognizer(createPin)
@@ -62,7 +49,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     // Drop a NEW PIN
     func tapGestureRecognizer(tapGestureRecognizer: UITapGestureRecognizer) {
-        print(locationManager)
         
         // Delete previous annotations so only one pin exists on the map at one time
         mapView.removeAnnotations(mapView.annotations)
@@ -77,12 +63,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         print(url)
         
         // Callout Annotation
-        annotation.coordinate = newCoordinate
-        let location = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-        getCityName(location) { (city) in
-            self.annotation.title = city
+        LocationController.annotation.coordinate = newCoordinate
+        let location = CLLocation(latitude: LocationController.annotation.coordinate.latitude, longitude: LocationController.annotation.coordinate.longitude)
+        LocationController.getCityName(location) { (city) in
+            LocationController.annotation.title = city
         }
-        mapView.addAnnotation(annotation)
+        mapView.addAnnotation(LocationController.annotation)
         
         // Creates the span and animated zoomed into an area
         let span = MKCoordinateSpanMake(0.1, 0.1)
@@ -97,40 +83,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.selectAnnotation(mapView.annotations[yourAnnotationAtIndex], animated: false)
         
     }
-    // Get City Name from Location Coordinates
-    
-    func getCityName(location: CLLocation, completion: (city: String) -> Void ) {
-        
-        CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
-            if error != nil {
-                print("Could not find City")
-                completion(city: "")
-            } else {
-                if let unwrappedPlacemarks = placemarks {
-                    if unwrappedPlacemarks.count > 0 {
-                        let pm = unwrappedPlacemarks[0]
-                        if let cityName = pm.locality {
-                            completion(city: cityName)
-                        } else {
-                            completion(city: "")
-                        }
-                    } else {
-                        completion(city: "")
-                    }
-                } else {
-                    completion(city: "")
-                }
-            }
-            
-        }
-        
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toForecastVC" {
             let customForecastVC = segue.destinationViewController as! ForecastTableViewController
-            customForecastVC.latitude = "\(annotation.coordinate.latitude)"
-            customForecastVC.longitude = "\(annotation.coordinate.longitude)"
+            customForecastVC.latitude = "\(LocationController.annotation.coordinate.latitude)"
+            customForecastVC.longitude = "\(LocationController.annotation.coordinate.longitude)"
             
         }
     }

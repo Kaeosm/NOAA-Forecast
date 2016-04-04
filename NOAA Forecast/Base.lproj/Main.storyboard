@@ -57,6 +57,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="mFy-nQ-oij"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="appInfoButtonTapped:" destination="MER-7u-fub" eventType="touchUpInside" id="pB7-PM-deG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOAA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iz0-h9-YJ5">
                                 <rect key="frame" x="28" y="54" width="359" height="116"/>

@@ -10,6 +10,7 @@
 		24083CD91CA3082800CF6B7F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24083CD81CA3082700CF6B7F /* Weather.swift */; };
 		24083CDB1CA32E1400CF6B7F /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24083CDA1CA32E1400CF6B7F /* NetworkController.swift */; };
 		24083D001CA4A22A00CF6B7F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24083CFF1CA4A22A00CF6B7F /* CoreLocation.framework */; };
+		245151E11CB2FF1D00D4C1BA /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245151E01CB2FF1D00D4C1BA /* LocationController.swift */; };
 		24A717911C93899800C99572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717901C93899800C99572 /* AppDelegate.swift */; };
 		24A717961C93899800C99572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A717941C93899800C99572 /* Main.storyboard */; };
 		24A717981C93899800C99572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24A717971C93899800C99572 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		24083CD81CA3082700CF6B7F /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		24083CDA1CA32E1400CF6B7F /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		24083CFF1CA4A22A00CF6B7F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		245151E01CB2FF1D00D4C1BA /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		24A7178D1C93899800C99572 /* NOAA Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NOAA Forecast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A717901C93899800C99572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24A717951C93899800C99572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				24083CD81CA3082700CF6B7F /* Weather.swift */,
 				24083CDA1CA32E1400CF6B7F /* NetworkController.swift */,
 				24A717CF1CA08B5100C99572 /* MapViewController.swift */,
+				245151E01CB2FF1D00D4C1BA /* LocationController.swift */,
 				24A717941C93899800C99572 /* Main.storyboard */,
 				24A717971C93899800C99572 /* Assets.xcassets */,
 				24A717991C93899800C99572 /* LaunchScreen.storyboard */,
@@ -173,6 +176,7 @@
 				24B7E4F11CAB035200482369 /* ForecastController.swift in Sources */,
 				24A717911C93899800C99572 /* AppDelegate.swift in Sources */,
 				24B7E4F31CAB2FE300482369 /* BasicForecastTableViewCell.swift in Sources */,
+				245151E11CB2FF1D00D4C1BA /* LocationController.swift in Sources */,
 				24083CD91CA3082800CF6B7F /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
