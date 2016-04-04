@@ -13,8 +13,9 @@ import MapKit
 class LocationViewController: UIViewController {
     
     @IBAction func appInfoButtonTapped(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Pinpoint Weather", message: "Thanks for downloading Pinpoint Weather! This app will allow you to specify A custom location, which will return data for that exact latitude and longitude."
-        
+        let alertController = UIAlertController(title: "Pinpoint Weather", message: "This app will allow you to specify A custom location, which will return weather for that exact latitude and longitude within a small area. It's perfect for outdoor activites. The developer's favorite use is Ski Touring - which can tell you how many inches of Snow one ridge got compared to another half a mile away.", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+    self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     
