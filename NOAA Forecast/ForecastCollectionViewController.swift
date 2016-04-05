@@ -16,6 +16,7 @@ class ForecastCollectionViewController: UICollectionViewController {
     var latitude: String?
     var longitude: String?
     var weather: Weather?
+    var imageView: UIImageView!
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -36,11 +37,12 @@ class ForecastCollectionViewController: UICollectionViewController {
         if let patternImage = UIImage(named: "Pattern") {
             view.backgroundColor = UIColor(patternImage: patternImage)
         }
+
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.decelerationRate = UIScrollViewDecelerationRateFast
     }
-    
 }
+
 
 extension ForecastCollectionViewController {
     

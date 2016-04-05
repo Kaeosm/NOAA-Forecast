@@ -32,16 +32,14 @@ class BasicForecastCollectionViewCell: UICollectionViewCell {
         dayOfTheWeek.text = ""
         basicWeather.text = ""
         temperature.text = ""
-        imageView.image = nil
-        
+        imageView.image = UIImage(named: "WeatherPic-\(index + 1)")
+        imageView.contentMode = .ScaleAspectFill
         
         dayOfTheWeek.text = weather.dayOfTheWeek[index]
         basicWeather.text = weather.weatherTitle[index]
         temperature.text = weather.temperatures[index]
         weatherDescription.text = weather.weatherDescriptions[index]
         
-//        self.backgroundColor = UIColor(patternImage: UIImage(named: "Pattern")!)
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "WeatherPic-\(index + 1)")!)
     }
     
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
