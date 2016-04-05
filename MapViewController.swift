@@ -71,7 +71,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(LocationController.annotation)
         
         // Creates the span and animated zoomed into an area
-        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let span = MKCoordinateSpanMake(0.03, 0.03)
         let region = MKCoordinateRegion(center: newCoordinate, span: span)
         mapView.setRegion(region, animated: true)
         
