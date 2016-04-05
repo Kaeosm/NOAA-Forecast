@@ -6,80 +6,80 @@
 //  Copyright © 2016 Kaelin Osmun. All rights reserved.
 //
 
-import UIKit
+//import UIKit
+//
+//class ForecastTableViewController: UITableViewController {
+//
+//    var cellTapped:Bool = true
+//    var currentRow = -1
+//    
+//    var latitude: String?
+//    var longitude: String?
+//    var weather: Weather?
+//    
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        if let latitude = latitude, longitude = longitude {
+//            ForecastController.fetchWeatherWithCoordinates(longitude, lat: latitude, completion: { (weather) in
+//                self.weather = weather
+//                dispatch_async(dispatch_get_main_queue(), { 
+//                    self.tableView.reloadData()
+//                })
+//            })
+//        }
+//    }
+//    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+//
+//    // MARK: - Table view data source
+//
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
+//
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        var selectedRowIndex = indexPath
+//        currentRow = selectedRowIndex.row
+//        
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+//    }
+//    
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if indexPath.row == currentRow {
+//            if cellTapped == false {
+//                cellTapped = true
+//                return 141
+//            } else {
+//                cellTapped = false
+//                return 70
+//            }
+//        }
+//        return 70
+//    }
+//    
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 10
+//    }
+//
+//    
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! BasicForecastCollectionViewCell
+//        
+//        
+//        
+//        if let weather = weather {
+//            cell.configureCellWithWeather(weather, index: indexPath.row)
+//        }
+//        
+//        return cell
+//    }
 
-class ForecastTableViewController: UITableViewController {
-
-    var cellTapped:Bool = true
-    var currentRow = -1
-    
-    var latitude: String?
-    var longitude: String?
-    var weather: Weather?
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if let latitude = latitude, longitude = longitude {
-            ForecastController.fetchWeatherWithCoordinates(longitude, lat: latitude, completion: { (weather) in
-                self.weather = weather
-                dispatch_async(dispatch_get_main_queue(), { 
-                    self.tableView.reloadData()
-                })
-            })
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var selectedRowIndex = indexPath
-        currentRow = selectedRowIndex.row
-        
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == currentRow {
-            if cellTapped == false {
-                cellTapped = true
-                return 141
-            } else {
-                cellTapped = false
-                return 70
-            }
-        }
-        return 70
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! BasicForecastTableViewCell
-        
-        
-        
-        if let weather = weather {
-            cell.configureCellWithWeather(weather, index: indexPath.row)
-        }
-        
-        return cell
-    }
-    
     
 
     /*
@@ -127,4 +127,3 @@ class ForecastTableViewController: UITableViewController {
     }
     */
 
-}

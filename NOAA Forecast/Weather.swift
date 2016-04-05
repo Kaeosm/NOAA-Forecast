@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class Weather {
     
+//    var backgroundImage: UIImage
     var temperatures: [String]
     var humidity: String
     var windSpeed: String
@@ -28,7 +30,7 @@ class Weather {
             weatherTitle = data["weather"] as? [String],
             weatherDescriptions = data["text"] as? [String],
             weatherIcons = data["iconLink"] as? [String] else {
-        
+                
                 return nil
         }
         //Basic Weather Title
@@ -67,10 +69,13 @@ class Weather {
                 return nil
         }
         self.areaLocation = areaLocation
+        
+        //        init(backgroundImage: UIImage) {
+        //            self.backgroundImage = backgroundImage
+        //å    }
+        
     }
-    
 }
-
 
 
 

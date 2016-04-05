@@ -86,7 +86,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toForecastVC" {
-            let customForecastVC = segue.destinationViewController as! ForecastTableViewController
+            let customForecastVC = segue.destinationViewController as! ForecastCollectionViewController
             customForecastVC.latitude = "\(LocationController.annotation.coordinate.latitude)"
             customForecastVC.longitude = "\(LocationController.annotation.coordinate.longitude)"
             
