@@ -62,6 +62,7 @@ class BasicForecastCollectionViewCell: UICollectionViewCell {
         
         temperature.alpha = delta
         basicWeather.alpha = delta
+        weatherDescription.alpha = delta
     }
     
 }
