@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Foundation
-import CoreGraphics
 
 extension UIImage {
   

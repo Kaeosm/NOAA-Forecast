@@ -12,7 +12,6 @@ private let reuseIdentifier = "Cell"
 
 class ForecastCollectionViewController: UICollectionViewController {
     
-    
     var currentRow = -1
     var latitude: String?
     var longitude: String?
@@ -58,6 +57,7 @@ extension ForecastCollectionViewController {
         if let weather = weather {
             cell.configureCellWithWeather(weather, index: indexPath.row)
         }
+        
         return cell
     }
     

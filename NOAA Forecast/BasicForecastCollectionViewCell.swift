@@ -22,6 +22,9 @@ class BasicForecastCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var temperature: UILabel!
     
+    @IBOutlet weak var weatherDescription: UILabel!
+    
+    
     //    @IBOutlet weak var windChill: UILabel!
     
     func configureCellWithWeather(weather: Weather, index: Int) {
@@ -35,8 +38,10 @@ class BasicForecastCollectionViewCell: UICollectionViewCell {
         dayOfTheWeek.text = weather.dayOfTheWeek[index]
         basicWeather.text = weather.weatherTitle[index]
         temperature.text = weather.temperatures[index]
-        //        imageView.image = weather.backgroundImage
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "Pattern")!)
+        weatherDescription.text = weather.weatherDescriptions[index]
+        
+//        self.backgroundColor = UIColor(patternImage: UIImage(named: "Pattern")!)
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "WeatherPic-\(index + 1)")!)
     }
     
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
