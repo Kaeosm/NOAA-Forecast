@@ -1,9 +1,9 @@
 //
-//  TutorialCell.swift
-//  RWDevCon
+//  ForecastController.swift
+//  NOAA Forecast
 //
-//  Created by Mic Pringle on 27/02/2015.
-//  Copyright (c) 2015 Ray Wenderlich. All rights reserved.
+//  Created by Kaelin Osmun on 3/29/16.
+//  Copyright © 2016 Kaelin Osmun. All rights reserved.
 //
 
 import UIKit

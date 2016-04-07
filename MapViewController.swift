@@ -16,6 +16,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    var useCurrentLocation: Bool?
+    var latitude: String?
+    var longitude: String?
+    
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
@@ -28,9 +32,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         LocationController.fetchLocation()
         
         LocationController.setAnnotationCoordinates()
+        if useCurrentLocation == true {
+            self.mapView.addAnnotation(LocationController.annotation)
+        } else {
+            let annotation = MKPointAnnotation()
+            if let unwrappedLatitude = latitude, unwrappedLongitude = longitude {
+                if let latitude = Double(unwrappedLatitude), let longitude = Double(unwrappedLongitude) {
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
+            
+        }
         
-        self.mapView.addAnnotation(LocationController.annotation)
-        
+            
         let createPin = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
         self.view.addGestureRecognizer(createPin)
         

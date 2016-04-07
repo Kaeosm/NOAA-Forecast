@@ -11,6 +11,7 @@
 		24083CDB1CA32E1400CF6B7F /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24083CDA1CA32E1400CF6B7F /* NetworkController.swift */; };
 		24083D001CA4A22A00CF6B7F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24083CFF1CA4A22A00CF6B7F /* CoreLocation.framework */; };
 		2424A9411CB488B4007175F7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2424A93F1CB488B4007175F7 /* Launch Screen.storyboard */; };
+		2424A9611CB5CE77007175F7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2424A9601CB5CE77007175F7 /* Default-568h@2x.png */; };
 		245151E11CB2FF1D00D4C1BA /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245151E01CB2FF1D00D4C1BA /* LocationController.swift */; };
 		24A717911C93899800C99572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A717901C93899800C99572 /* AppDelegate.swift */; };
 		24A717961C93899800C99572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A717941C93899800C99572 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		24083CDA1CA32E1400CF6B7F /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		24083CFF1CA4A22A00CF6B7F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2424A9401CB488B4007175F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2424A9601CB5CE77007175F7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		245151E01CB2FF1D00D4C1BA /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		24A7178D1C93899800C99572 /* NOAA Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NOAA Forecast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24A717901C93899800C99572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 		24A717841C93899800C99572 = {
 			isa = PBXGroup;
 			children = (
+				2424A9601CB5CE77007175F7 /* Default-568h@2x.png */,
 				24083CFF1CA4A22A00CF6B7F /* CoreLocation.framework */,
 				24A717CB1CA07A8A00C99572 /* MapKit.framework */,
 				24A7178F1C93899800C99572 /* NOAA Forecast */,
@@ -202,6 +205,7 @@
 				24A717961C93899800C99572 /* Main.storyboard in Resources */,
 				2424A9411CB488B4007175F7 /* Launch Screen.storyboard in Resources */,
 				24E3F46E1CB4205D0070D1F0 /* CellProperties.plist in Resources */,
+				2424A9611CB5CE77007175F7 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

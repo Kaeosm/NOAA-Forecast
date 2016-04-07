@@ -8,33 +8,54 @@
 
 import UIKit
 import MapKit
+import CoreLocation
+import AddressBook
 
 
-class LocationViewController: UIViewController {
+class LocationViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
+    
+    @IBOutlet weak var cityTextField: UITextField!
     
     @IBAction func appInfoButtonTapped(sender: AnyObject) {
         let alertController = UIAlertController(title: "Pinpoint Weather", message: "This app will allow you to specify A custom location, which will return weather for that exact latitude and longitude within a square mile radius. It's perfect for outdoor activites. The developer's favorite use is Ski Touring - which can tell you how many inches of Snow one ridge will receive compared to another half a mile away.", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-    self.presentViewController(alertController, animated: true, completion: nil)
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
+   
+    
+    @IBAction func setLocationWithCityButton(sender: AnyObject) {
+      
+        if let city = cityTextField.text {
+            LocationController.getCoordinatesFromCity(city, completion: { (longitude, latitude) in
+            })
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.cityTextField.delegate = self;
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-        
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "segueToMapFromCity" {
+//            let customForecastVC = segue.destinationViewController as! MapViewController
+//            customForecastVC.useCurrentLocation = false
+//        } else {
+//            let customForecastVC = segue.destinationViewController as! MapViewController
+//            customForecastVC.useCurrentLocation = true
+//        }
+//}
 }
+

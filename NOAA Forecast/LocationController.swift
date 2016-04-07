@@ -56,5 +56,19 @@ class LocationController: NSObject, MKMapViewDelegate {
         }
         
     }
-
+    
+    static func getCoordinatesFromCity(cityName: String, completion: (longitude: CLLocationDegrees?, latitude: CLLocationDegrees?) -> Void ) {
+        CLGeocoder().geocodeAddressString(cityName) { (placemarks, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+                completion(longitude: nil, latitude: nil)
+            } else {
+                if let placemarks = placemarks, firstPlacemark = placemarks.first, location = firstPlacemark.location {
+                    completion(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
+                } else {
+                    completion(longitude: nil, latitude: nil)
+                }
+            }
+        }
+    }
 }

@@ -13,8 +13,12 @@ class NetworkController {
     static func baseURLCoordinates(latitude: String, longitude: String) -> NSURL {
         let modifiedSearchLocation = "lon=\(longitude)&lat=\(latitude)"
         return NSURL(string: "http://forecast.weather.gov/MapClick.php?\(modifiedSearchLocation)&FcstType=json")!
-        
     }
+    
+    static func cityURLCoordinates(city: String) -> NSURL {
+        return NSURL(string: "http://gd.geobytes.com/AutoCompleteCity?callback=?&filter=US&q=\(city)")!
+    }
+    
     static func dataAtURL(url: NSURL, completion: (data: NSData?) -> Void) {
         let dataTask = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { (data, _, error) in
             if let error = error {
@@ -30,7 +34,4 @@ class NetworkController {
         dataTask.resume()
     }
 }
-
-// http://forecast.weather.gov/MapClick.php?lon=-111.56813428659063&lat=40.60066141047355&FcstType=json
-// http://forecast.weather.gov/MapClick.php?lat=-111.56813428659063&lon=40.60066141047355&FcstType=json
 
