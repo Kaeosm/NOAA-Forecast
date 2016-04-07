@@ -10,20 +10,28 @@ import UIKit
 import MapKit
 import CoreLocation
 
+enum MapType: Int {
+    case Hybrid = 0
+    case Satellite
+}
+
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func dismissMapViewTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    var useCityLocation: Bool?
     var useCurrentLocation: Bool?
-    var latitude: String?
-    var longitude: String?
+    var latitude: Double?
+    var longitude: Double?
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
@@ -37,19 +45,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         } else {
             let annotation = MKPointAnnotation()
             if let unwrappedLatitude = latitude, unwrappedLongitude = longitude {
-                if let latitude = Double(unwrappedLatitude), let longitude = Double(unwrappedLongitude) {
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                    self.mapView.addAnnotation(annotation)
-                }
-            }
-            
+                annotation.coordinate = CLLocationCoordinate2D(latitude: unwrappedLatitude, longitude: unwrappedLongitude)
+                self.mapView.addAnnotation(annotation)
+                let span = MKCoordinateSpanMake(0.03, 0.03)
+                let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+                mapView.setRegion(region, animated: true)
         }
         
-            
         let createPin = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
         self.view.addGestureRecognizer(createPin)
         
-        
+        }
     }
     
     @IBAction func useLocationButtonTapped(sender: AnyObject) {
@@ -59,9 +65,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func homeButtonTapped(sender: AnyObject) {
         
     }
-    
-    
-    
+
     // Drop a NEW PIN
     func tapGestureRecognizer(tapGestureRecognizer: UITapGestureRecognizer) {
         

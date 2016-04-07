@@ -15,6 +15,8 @@ import AddressBook
 class LocationViewController: UIViewController, UITextFieldDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var cityTextField: UITextField!
+    var latitude: Double?
+    var longitude: Double?
     
     @IBAction func appInfoButtonTapped(sender: AnyObject) {
         let alertController = UIAlertController(title: "Pinpoint Weather", message: "This app will allow you to specify A custom location, which will return weather for that exact latitude and longitude within a square mile radius. It's perfect for outdoor activites. The developer's favorite use is Ski Touring - which can tell you how many inches of Snow one ridge will receive compared to another half a mile away.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -28,6 +30,11 @@ class LocationViewController: UIViewController, UITextFieldDelegate, MKMapViewDe
       
         if let city = cityTextField.text {
             LocationController.getCoordinatesFromCity(city, completion: { (longitude, latitude) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.latitude = latitude
+                    self.longitude = longitude
+                    self.performSegueWithIdentifier("segueToMapFromCity", sender: self)
+                })
             })
         }
         
@@ -48,14 +55,20 @@ class LocationViewController: UIViewController, UITextFieldDelegate, MKMapViewDe
         self.view.endEditing(true)
         return false
     }
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "segueToMapFromCity" {
-//            let customForecastVC = segue.destinationViewController as! MapViewController
-//            customForecastVC.useCurrentLocation = false
-//        } else {
-//            let customForecastVC = segue.destinationViewController as! MapViewController
-//            customForecastVC.useCurrentLocation = true
-//        }
-//}
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToMapFromCity" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let mapVC = navigationController.viewControllers[0] as! MapViewController
+            mapVC.longitude = longitude
+            mapVC.latitude = latitude
+            mapVC.useCurrentLocation = false
+        
+        } else {
+            
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let mapVC = navigationController.viewControllers[0] as! MapViewController
+            mapVC.useCurrentLocation = true
+        }
+    }
 }
 
