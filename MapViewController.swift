@@ -10,11 +10,6 @@ import UIKit
 import MapKit
 import CoreLocation
 
-enum MapType: Int {
-    case Hybrid = 0
-    case Satellite
-}
-
 class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func dismissMapViewTapped(sender: AnyObject) {
@@ -30,8 +25,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true

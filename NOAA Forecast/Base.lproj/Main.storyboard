@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Location View Controller-->
@@ -258,22 +257,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="m4c-gx-2Ri">
                         <nil key="title"/>
-                        <leftBarButtonItems>
-                            <barButtonItem title="Home" id="Vf3-6u-9rh">
-                                <connections>
-                                    <action selector="dismissMapViewTapped:" destination="wdn-1l-BWJ" id="Dmq-go-pj5"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" id="HKZ-Pz-yuY"/>
-                        </leftBarButtonItems>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="yjI-yG-kvs">
-                            <rect key="frame" x="125" y="7" width="165" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Standard"/>
-                                <segment title="Hybrid"/>
-                            </segments>
-                        </segmentedControl>
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="Vf3-6u-9rh">
+                            <connections>
+                                <action selector="dismissMapViewTapped:" destination="wdn-1l-BWJ" id="Dmq-go-pj5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Use Location" id="oIg-bQ-rLV">
                             <connections>
                                 <action selector="useLocationButtonTapped:" destination="wdn-1l-BWJ" id="Tao-gl-AoS"/>
