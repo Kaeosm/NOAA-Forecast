@@ -39,16 +39,14 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let annotation = MKPointAnnotation()
             if let unwrappedLatitude = latitude, unwrappedLongitude = longitude {
                 annotation.coordinate = CLLocationCoordinate2D(latitude: unwrappedLatitude, longitude: unwrappedLongitude)
-                self.mapView.addAnnotation(annotation)
-                let span = MKCoordinateSpanMake(0.03, 0.03)
-                let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
-                mapView.setRegion(region, animated: true)
+                                self.mapView.addAnnotation(annotation)
+                                let span = MKCoordinateSpanMake(0.03, 0.03)
+                                let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+                                mapView.setRegion(region, animated: true)
+            }
         }
-        
         let createPin = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizer))
         self.view.addGestureRecognizer(createPin)
-        
-        }
     }
     
     @IBAction func useLocationButtonTapped(sender: AnyObject) {
@@ -58,7 +56,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func homeButtonTapped(sender: AnyObject) {
         
     }
-
+    
     // Drop a NEW PIN
     func tapGestureRecognizer(tapGestureRecognizer: UITapGestureRecognizer) {
         
