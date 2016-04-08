@@ -29,6 +29,9 @@ class BasicForecastCollectionViewCell: UICollectionViewCell {
     
     func configureCellWithWeather(weather: Weather, index: Int) {
         
+        weatherDescription.adjustsFontSizeToFitWidth = true
+        weatherDescription.minimumScaleFactor = 0.3
+        
         dayOfTheWeek.text = ""
         basicWeather.text = ""
         temperature.text = ""
