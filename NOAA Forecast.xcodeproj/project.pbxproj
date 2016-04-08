@@ -19,6 +19,11 @@
 		24E3F4621CB375610070D1F0 /* BasicForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E3F4611CB375610070D1F0 /* BasicForecastCollectionViewCell.swift */; };
 		24E3F4641CB375A00070D1F0 /* UltravisualLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E3F4631CB375A00070D1F0 /* UltravisualLayout.swift */; };
 		24E3F4661CB37A850070D1F0 /* ForecastCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E3F4651CB37A850070D1F0 /* ForecastCollectionViewController.swift */; };
+		24F970621CB8271F0057F938 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24A717941C93899800C99572 /* Main.storyboard */; };
+		24F970631CB8271F0057F938 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2424A93F1CB488B4007175F7 /* Launch Screen.storyboard */; };
+		24F970641CB8271F0057F938 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24A717971C93899800C99572 /* Assets.xcassets */; };
+		24F970651CB8271F0057F938 /* WeatherPix.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E3F4671CB41A0B0070D1F0 /* WeatherPix.xcassets */; };
+		24F970661CB8271F0057F938 /* CellProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E3F46D1CB4205D0070D1F0 /* CellProperties.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +197,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F970621CB8271F0057F938 /* Main.storyboard in Resources */,
+				24F970631CB8271F0057F938 /* Launch Screen.storyboard in Resources */,
+				24F970641CB8271F0057F938 /* Assets.xcassets in Resources */,
+				24F970651CB8271F0057F938 /* WeatherPix.xcassets in Resources */,
+				24F970661CB8271F0057F938 /* CellProperties.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
