@@ -29,6 +29,12 @@ class LocationViewController: UIViewController, UITextFieldDelegate, MKMapViewDe
     @IBAction func setLocationWithCityButton(sender: AnyObject) {
       
         if let city = cityTextField.text {
+
+        if (cityTextField.text!.isEmpty) {
+            let alertForNoCityText = UIAlertController(title: "No Text", message: "Please Enter Location in the Text Box", preferredStyle: UIAlertControllerStyle.Alert)
+            alertForNoCityText.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertForNoCityText, animated: true, completion: nil)
+        }
             LocationController.getCoordinatesFromCity(city, completion: { (longitude, latitude) in
                 dispatch_async(dispatch_get_main_queue(), {
                     self.latitude = latitude
