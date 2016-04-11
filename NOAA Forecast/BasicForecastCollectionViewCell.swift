@@ -34,7 +34,7 @@ class BasicForecastCollectionViewCell: UICollectionViewCell {
         
         dayOfTheWeek.text = ""
         basicWeather.text = ""
-        temperature.text = ""
+        temperature.text = " 65\u{00B0}"
         imageView.image = UIImage(named: "WeatherPic-\(index + 1)")
         imageView.contentMode = .ScaleAspectFill
         
